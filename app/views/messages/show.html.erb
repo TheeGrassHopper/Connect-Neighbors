@@ -1,6 +1,11 @@
 <h2><%= @message.title %></h2>
 <p><%= @message.description %></p>
 
+<!-- when we want to show the comments on messages by users -->
+<h3>Reply to a Message:</h3>
+<% render 'comments/form' %>
+
+
 <%= link_to "Home Page",  root_path %> |
 <%= link_to "Edit", edit_message_path(@message) %> | 
 <%= link_to "Delete",  message_path(@message), method: :delete, data: { confirm: "Are You Sure?"} %> 
