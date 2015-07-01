@@ -1,11 +1,32 @@
-<h2><%= @message.title %></h2>
-<p><%= @message.description %></p>
+<div class="col-md-8 col-md-offset-2">
+	<div class="message-show">
+		<h2><%= @message.title %></h2>
+		<p class="message-posted-by">Posted by <%= @message.user.email %> <%= time_ago_in_words(@message.created_at) %>ago</p>
+		<p class="message-desc"><%= @message.description %></p>
 
-<!-- when we want to show the comments on messages by users -->
-<h3>Reply to a Message:</h3>
-<% render 'comments/form' %>
+		<!-- renders the _comment.html.erb partial file. -->
+		<h3 class="comment-section-header">Comments:</h3>
+		<p><%= render @message.comments %></p>
+		<!-- when we want to show the comments on messages by users -->
+		<h3 class="reply-to-msg">Reply to Message:</h3>
+		<!-- renders the comments form -->
+		<%= render 'comments/form' %>
+
+		<!-- Add a conditional so that the 'edit' and 'destroy' links only appear for the user who created the message. -->
+		<div class="links btn-group">
+			<%= link_to "Back", root_path, class: "btn btn-default" %>
+			<% if user_signed_in? %>
+				<% if @message.user_id == current_user.id %>
+					<%= link_to "Edit", edit_message_path(@message), class: "btn btn-default" %>
+					<%= link_to "Delete", message_path(@message), method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-default" %>
+				<% end %>
+			<% end %>
+		</div>
+	</div>
+</div>
 
 
-<%= link_to "Home Page",  root_path %> |
-<%= link_to "Edit", edit_message_path(@message) %> | 
-<%= link_to "Delete",  message_path(@message), method: :delete, data: { confirm: "Are You Sure?"} %> 
+
+
+		
+		

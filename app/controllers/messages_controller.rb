@@ -1,5 +1,6 @@
 class MessagesController < ApplicationController
 	before_action :find_message, only: [:show, :edit, :destroy, :update]
+	before_action :authenticate_user!, except: [:index, :show]
 	def index
 		@messages = Message.all.order("created_at DESC")
 	end
@@ -8,7 +9,7 @@ class MessagesController < ApplicationController
 	end
 
 	def new
-		@message = current_user.message.build
+		@message = current_user.messages.build
 	end
 
 	def edit
@@ -18,7 +19,7 @@ class MessagesController < ApplicationController
 	def update
 		respond_to do |format|
     		if @message.update(message_params)
-       			format.html { redirect_to @message, notice: 'message was successfully updated.'}
+       			format.html { redirect_to message_path, notice: 'message was successfully updated.'}
         		format.json { render :show, status: :ok, location: @message }
       		else
         		format.html {render :edit}
@@ -35,7 +36,7 @@ class MessagesController < ApplicationController
 	end
 	
 	def create
-		@message = current_user.message.build(message_params)
+		@message = current_user.messages.build(message_params)
 		if @message.save
 			redirect_to root_path
 		else
