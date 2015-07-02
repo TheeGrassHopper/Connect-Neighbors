@@ -1,0 +1,18 @@
+<%= simple_form_for @paperclip_image,  html: { multipart: true } do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+  </div>
+  <div class = "form-group">
+  	<%= f.label :image %>
+  	<%= f.file_field :image, html: { class: 'form-control' }%>
+  	<% if f.object.image? %>
+  	<br/>
+  	<%= image_tag(f.object.image.url(:small)) %> <br/>
+  	<em>Currently Uploaded Image</em>
+  	<% end %> 
+
+  <div class="actions">
+    <%= f.submit 'Save', class: "btn btn-primary" %>
+  </div>
+<% end %>
