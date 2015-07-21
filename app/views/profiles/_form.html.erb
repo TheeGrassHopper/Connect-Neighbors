@@ -1,0 +1,23 @@
+<%= simple_form_for(@profile) do |f| %>
+  <%= f.error_notification %>
+
+  <p>
+    <strong>User:</strong>
+    <%= @profile.user %>
+  </p>
+
+  <div class="form-inputs">
+    
+    <%= f.association :paperclip_image %>
+    <%= f.input :firstname %>
+    <%= f.input :lastname %>
+    <%= f.input :apt %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>
+
+
+

@@ -1,0 +1,29 @@
+<h1 id="notice"><%= notice %>This  Is Your Profile</h1>
+
+<p>
+  <strong>Email:</strong>
+  <%= @profile.user.email %>
+</p>
+
+<p>
+  <strong>Profile Image:</strong>
+  <%= image_tag @profile.paperclip_image.image.url(:medium), class: "img-thumbnail" %>
+</p>
+
+<p>
+  <strong>First Name:</strong>
+  <%= @profile.firstname %>
+</p>
+
+<p>
+  <strong>Last Name:</strong>
+  <%= @profile.lastname %>
+</p>
+
+<p>
+  <strong>Apt:</strong>
+  <%= @profile.apt %>
+</p>
+
+<%= link_to 'Edit', edit_profile_path(@profile) %> |
+<%= link_to 'Back', profiles_path %>
