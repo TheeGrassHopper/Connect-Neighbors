@@ -8,7 +8,8 @@
 
   <div class="form-inputs">
     
-    <%= f.association :paperclip_image %>
+    <%= f.label :paperclip_image %>
+     <%= f.file_field :paperclip_image, html: { class: 'form-control' }%>
     <%= f.input :firstname %>
     <%= f.input :lastname %>
     <%= f.input :apt %>

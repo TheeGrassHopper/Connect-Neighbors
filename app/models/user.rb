@@ -1,5 +1,5 @@
 class User < ActiveRecord::Base
-		User.connection
+		
 	has_many :messages
 	has_many :comments
 	has_one :profile
@@ -7,4 +7,6 @@ class User < ActiveRecord::Base
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
+  validates :email, uniqueness: true, presence: true, on: :create  
+  validates :password, length: { minimum: 10 }       
 end

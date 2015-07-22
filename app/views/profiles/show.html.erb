@@ -5,9 +5,10 @@
   <%= @profile.user.email %>
 </p>
 
+<!-- Image is not showing up no errors showing !! -->
 <p>
   <strong>Profile Image:</strong>
-  <%= image_tag @profile.paperclip_image.image.url(:medium), class: "img-thumbnail" %>
+  <%= image_tag @profile.paperclip_image.image.url(:medium), class: "img-responsive" if @profile.paperclip_image %>
 </p>
 
 <p>
