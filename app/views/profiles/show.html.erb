@@ -26,5 +26,10 @@
   <%= @profile.apt %>
 </p>
 
-<%= link_to 'Edit', edit_profile_path(@profile) %> |
-<%= link_to 'Back', profiles_path %>
+<button type="button" class="btn btn-warning">
+  <%= link_to 'Edit', edit_profile_path(@profile) %> 
+</button>
+
+<button type="button" class="btn btn-success">
+  <%= link_to 'Back', profiles_path %>
+</button>

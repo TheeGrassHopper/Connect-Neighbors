@@ -2,6 +2,16 @@
 	<div class="message-show">
 		<h2><%= @message.title %></h2>
 		<p class="message-posted-by">Posted by <%= @message.user.email %> <%= time_ago_in_words(@message.created_at) %>ago</p>
+
+
+		<!-- image not showing up under message form -->
+		
+		<h6 class="reply-to-msg">Image:</h6>
+		<span class="img-thumbnail" ><%= image_tag @message.paperclip_image_id.image.url(:image) if @message.paperclip_image_id  %></span>
+
+		<!-- image not showing up under message form  -->
+
+		
 		<p class="message-desc"><%= @message.description %></p>
 
 		<!-- renders the _comment.html.erb partial file. -->
@@ -14,11 +24,11 @@
 
 		<!-- Add a conditional so that the 'edit' and 'destroy' links only appear for the user who created the message. -->
 		<div class="links btn-group">
-			<%= link_to "Back", root_path, class: "btn btn-default" %>
+			<%= link_to "Back", root_path, class: "btn btn-success" %>
 			<% if user_signed_in? %>
 				<% if @message.user_id == current_user.id %>
-					<%= link_to "Edit", edit_message_path(@message), class: "btn btn-default" %>
-					<%= link_to "Delete", message_path(@message), method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-default" %>
+					<%= link_to "Edit", edit_message_path(@message), class: "btn btn-warning" %>
+					<%= link_to "Delete", message_path(@message), method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-danger" %>
 				<% end %>
 			<% end %>
 		</div>

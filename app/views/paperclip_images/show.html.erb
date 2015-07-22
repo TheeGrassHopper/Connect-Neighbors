@@ -2,5 +2,12 @@
 
 <%= image_tag @paperclip_image.image.url(:medium), class: "img-thumbnail" %>
 
-<%= link_to 'Edit', edit_paperclip_image_path(@paperclip_image) %> |
-<%= link_to 'Back', paperclip_images_path %>
+
+
+<button type="button" class="btn btn-warning">
+	<%= link_to 'Edit', edit_paperclip_image_path(@paperclip_image) %> 
+</button>
+
+ <button type="button" class="btn btn-success">
+	<%= link_to 'Back', paperclip_images_path %>
+</button>

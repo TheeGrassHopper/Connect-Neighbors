@@ -24,14 +24,16 @@
         <td><%= profile.firstname %></td>
         <td><%= profile.lastname %></td>
         <td><%= profile.apt %></td>
-        <td><%= link_to 'Show', profile %></td>
-        <td><%= link_to 'Edit', edit_profile_path(profile) %></td>
-        <td><%= link_to 'Destroy', profile, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+
+        <td  class="btn btn-success"><%= link_to 'Show', profile %></td>
+        <td class="btn btn-warning"><%= link_to 'Edit', edit_profile_path(profile) %></td>
+        <td class="btn btn-danger"><%= link_to 'Destroy', profile, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
 
 <br>
-
-<%= link_to 'New Profile', new_profile_path %>
+<button type="button" class="btn btn-info">
+  <%= link_to 'New Profile', new_profile_path %>
+</button>
