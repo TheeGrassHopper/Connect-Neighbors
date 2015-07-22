@@ -7,11 +7,15 @@ class CommentsController < ApplicationController
 		@comment = @message.comments.create(comment_params)
 		@comment.user_id = current_user.id
 
-		if @comment.save
-			redirect_to message_path(@message)
-		else
-			render 'new'
-		end
+		respond_to do |format|
+			if @comment.save
+			format.html { redirect_to message_path(@message), notice: 'Your Comment was successfully created.' }
+        	format.json { render :show, status: :created, location: @message}
+      		else
+        	format.html { render :_form , status: :unprocessable_entity }
+        	format.json { render json: @comment.errors, status: :unprocessable_entity }
+      		end
+   		end
 	end
 
 	def edit

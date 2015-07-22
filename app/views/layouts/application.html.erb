@@ -9,22 +9,32 @@
 <body>
 
 	<div class="navbar navbar-default">
+	<%= render 'layouts/form' %>
 		<div class="container">
+
 			<div class="navbar-header">
+
 				<%= link_to "I Apartments", root_path, class: "navbar-brand" %>
 			</div>
 				<ul class="nav navbar-nav">
-					<li><%= link_to "Sign Up", new_user_registration_path %></li>
+				
+					<li><%= link_to "Sign Up", new_user_registration_path, class: "btn btn-success" %></li>
+				
 						<% if user_signed_in? %>
-					<li><%= link_to "Sign Out", destroy_user_session_path, method: :delete %></li> 
-					<li><%= link_to "Profile", new_profile_path %></li>
+					<li><%= link_to "Sign Out", destroy_user_session_path, method: :delete, class: "btn btn-primary" %></li> 
+					<li><%= link_to "Profile", new_profile_path, class: "btn btn-warning" %></li>
 					<%else%>
-						<li ><%= link_to "Log In", new_user_session_path %></li>
+						<li ><%= link_to "Log In", new_user_session_path, class: "btn btn-info" %></li>
 					<% end %>
-					<li><%= link_to 'Upload A Pic', paperclip_images_path %></li>
-				</ul>
+					<% if user_signed_in? %>
+					<li><%= link_to 'Upload A Pic', paperclip_images_path, class: "btn btn-danger" %></li>
+					<% end %>
+				
 				<% if user_signed_in? %>
-				<p><%= link_to "Post A Message For Neighbors To See", new_message_path, class: "navbar-right navbar-text navbar-link" %></p>
+					<li>
+						<%= link_to "Message Neighbors", new_message_path, type: "button", class: "navbar-link btn btn-default" %>
+					</li>
+				</ul>
 				<% end %>
 			</div>
 		</div>
@@ -34,6 +44,9 @@
 	<div class="container">
 		<%= yield %>
 	</div>
+
+	<%= render 'layouts/footer' %>
 </body>
+
 </html>
 
