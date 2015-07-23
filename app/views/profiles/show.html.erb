@@ -1,35 +1,37 @@
-<h1 id="notice"><%= notice %>This  Is Your Profile</h1>
+<div class="message-show">
+  <h1 id="notice"><%= notice %>This  Is Your Profile</h1>
 
-<p>
-  <strong>Email:</strong>
-  <%= @profile.user.email %>
-</p>
+  <p>
+    <strong>Email:</strong>
+    <%= @profile.user.email %>
+  </p>
 
-<!-- Image is not showing up no errors showing !! -->
-<p>
-  <strong>Profile Image:</strong>
-  <%= image_tag @profile.image.url(:small), class: "img-thumbnail" if @profile.image %>
-</p>
-<!-- Image is not showing up no errors showing !! -->
-<p>
-  <strong>First Name:</strong>
-  <%= @profile.firstname %>
-</p>
+  <!-- Image is not showing up no errors showing !! -->
+  <p>
+    <strong>Profile Image:</strong>
+    <%= image_tag @profile.image.url(:small), class: "img-thumbnail" if @profile.image %>
+  </p>
+  <!-- Image is not showing up no errors showing !! -->
+  <p>
+    <strong>First Name:</strong>
+    <%= @profile.firstname %>
+  </p>
 
-<p>
-  <strong>Last Name:</strong>
-  <%= @profile.lastname %>
-</p>
+  <p>
+    <strong>Last Name:</strong>
+    <%= @profile.lastname %>
+  </p>
 
-<p>
-  <strong>Apt:</strong>
-  <%= @profile.apt %>
-</p>
+  <p>
+    <strong>Apt:</strong>
+    <%= @profile.apt %>
+  </p>
 
-<button type="button" class="btn btn-warning">
-  <%= link_to 'Edit', edit_profile_path(@profile) %> 
-</button>
+  <button type="button" class="btn btn-warning">
+    <%= link_to 'Edit', edit_profile_path(@profile) %> 
+  </button>
 
-<button type="button" class="btn btn-success">
-  <%= link_to 'Back', profiles_path %>
-</button>
+  <button type="button" class="btn btn-success">
+    <%= link_to 'Back', profiles_path %>
+  </button>
+<div>

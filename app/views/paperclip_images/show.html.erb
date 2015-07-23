@@ -1,13 +1,15 @@
 <p id="notice"><%= notice %></p>
 
-<%= image_tag @paperclip_image.image.url(:medium), class: "img-thumbnail" %>
+<div class="message-show">
+	<%= image_tag @paperclip_image.image.url(:medium), class: "img-thumbnail" %>
 
 
 
-<button type="button" class="btn btn-warning">
-	<%= link_to 'Edit', edit_paperclip_image_path(@paperclip_image) %> 
-</button>
+	<button type="button" class="btn btn-warning">
+		<%= link_to 'Edit', edit_paperclip_image_path(@paperclip_image) %> 
+	</button>
 
- <button type="button" class="btn btn-success">
-	<%= link_to 'Back', paperclip_images_path %>
-</button>
+	 <button type="button" class="btn btn-success">
+		<%= link_to 'Back', paperclip_images_path %>
+	</button>
+</div>
