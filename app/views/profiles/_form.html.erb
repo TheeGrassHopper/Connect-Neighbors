@@ -1,4 +1,4 @@
-<%= simple_form_for(@profile) do |f| %>
+<%= simple_form_for(@profile,  html: { multipart: true }) do |f| %>
   <%= f.error_notification %>
 
   <p>
@@ -9,9 +9,9 @@
 
   <div class="form-inputs">
     
-    <%= f.label :paperclip_image %>
+    <%= f.label :image %>
   <div class="btn btn-default">
-      <%= f.file_field :paperclip_image, html: { class: 'form-control' }%>
+      <%= f.file_field :image, html: { class: 'form-control' }%>
   </div>
     <%= f.input :firstname %>
     <%= f.input :lastname %>

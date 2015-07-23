@@ -11,5 +11,6 @@ class User < ActiveRecord::Base
   validates :email, uniqueness: true, presence: true, on: :create  
   validates :password, length: { minimum: 10 }  
   validates_associated :comments
-  validates_associated :messages    
+  validates_associated :messages   
+  # validates_associated :paperclip_images 
 end
