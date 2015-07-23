@@ -5,9 +5,10 @@
 /* General styles */
 
 body {
-	background-color: #fff;
+	background-color: #ffg;
 	font-family: 'Playfair Display', serif;
 }
+
 
 h1, h2, h3, h4, h5, h6 {
 	font-family: 'Muli', sans-serif;
@@ -16,9 +17,24 @@ h1, h2, h3, h4, h5, h6 {
 
 body > .container {
   padding-bottom: 30% ;
+  background-image: url("http://grantspainting.wpengine.netdna-cdn.com/wp-content/uploads/2013/02/Exterior-House-Paint-Colors-e1361167985955-300x189.png");
 }
 
 
+.navbarc ul {
+    list-style-type: none; /*to remove bullets*/
+    text-align: center;
+    margin: 0 auto;
+    padding: 0px;
+    width: 50%;
+    overflow: hidden;
+}
+.navbarc li{
+    display: inline-block;
+    padding: 2px;
+    width: 150px;
+    marign: 0 auto;
+}
 .btn-custom {
 	background-color: #fff;
 	color: #0a8fd5;

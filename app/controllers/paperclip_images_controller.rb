@@ -24,6 +24,7 @@ class PaperclipImagesController < ApplicationController
   # POST /paperclip_images
   # POST /paperclip_images.json
   def create
+    @paperclip_image = PaperclipImage.all
     @paperclip_image = PaperclipImage.new(paperclip_image_params)
 
     respond_to do |format|
@@ -70,5 +71,5 @@ class PaperclipImagesController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def paperclip_image_params
       params.require(:paperclip_image).permit(:image).merge(:user_id => current_user.id) if params[:image]
-    end
+     end
 end

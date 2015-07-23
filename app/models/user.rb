@@ -11,5 +11,7 @@ class User < ActiveRecord::Base
   validates :email, uniqueness: true, presence: true, on: :create  
   validates :password, length: { minimum: 10 }  
   validates_associated :comments
-  validates_associated :messages    
+  validates_associated :messages   
+  has_attached_file :image, :styles => { :medium => "300x300>", :thumb => "100x100>" }
+validates_attachment_content_type :image, :content_type => /\Aimage\/.*\Z/ 
 end
