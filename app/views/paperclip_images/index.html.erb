@@ -10,7 +10,7 @@
   <tbody>
     <% @paperclip_images.each do |paperclip_image| %>
       <tr>
-        <td><%= link_to image_tag(paperclip_image.image.url(:medium), class: "img-thumbnail"), paperclip_image %></td>
+        <td><%= link_to image_tag(paperclip_image.image.url(:medium), class: "img-thumbnail"),  class: "img-thumbnail" if paperclip_image %></td>
         <td class="btn btn-info"><%= link_to 'Edit', edit_paperclip_image_path(paperclip_image) %></td>
         <td class="btn btn-success"><%= link_to 'Destroy', paperclip_image, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>

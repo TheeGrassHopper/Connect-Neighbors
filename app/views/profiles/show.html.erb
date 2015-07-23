@@ -8,8 +8,7 @@
 <!-- Image is not showing up no errors showing !! -->
 <p>
   <strong>Profile Image:</strong>
-  
-  <%= image_tag @profile.paperclip_image.image.url(:small), class: "img-thumbnail" if @profile.paperclip_image %>
+  <%= image_tag @profile.image.url(:small), class: "img-thumbnail" if @profile.image %>
 </p>
 <!-- Image is not showing up no errors showing !! -->
 <p>
