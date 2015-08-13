@@ -24,7 +24,7 @@ class PaperclipImagesController < ApplicationController
   # POST /paperclip_images
   # POST /paperclip_images.json
   def create
-    @paperclip_image = PaperclipImage.all
+    # @paperclip_image = PaperclipImage.all
     @paperclip_image = PaperclipImage.new(paperclip_image_params)
 
     respond_to do |format|
@@ -42,7 +42,7 @@ class PaperclipImagesController < ApplicationController
   # PATCH/PUT /paperclip_images/1.json
   def update
     respond_to do |format|
-      if @paperclip_image.update(paperclip_image_params)
+      if @paperclip_image.image.update(paperclip_image_params)
         format.html { redirect_to @paperclip_image, notice: 'Paperclip image was successfully updated.' }
         format.json { render :show, status: :ok, location: @paperclip_image }
       else
