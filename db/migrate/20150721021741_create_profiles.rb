@@ -2,11 +2,9 @@ class CreateProfiles < ActiveRecord::Migration
   def change
     create_table :profiles do |t|
       t.references :user, index: true, foreign_key: true
-      t.references :paperclip_image, index: true, foreign_key: true
       t.string :firstname
       t.string :lastname
       t.integer :apt
-
       t.timestamps null: false
     end
   end

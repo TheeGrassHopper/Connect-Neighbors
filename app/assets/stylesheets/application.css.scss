@@ -5,13 +5,14 @@
 /* General styles */
 
 body {
-	background-color: #fff;
+	background-color: #ffg;
 	font-family: 'Playfair Display', serif;
 }
 
+
 h1, h2, h3, h4, h5, h6 {
 	font-family: 'Muli', sans-serif;
-	font-weight: 300;	
+	font-weight: 1000;	
 }
 
 body > .container {
@@ -20,6 +21,21 @@ body > .container {
 }
 
 
+
+.navbarc ul {
+    list-style-type: none; /*to remove bullets*/
+    text-align: center;
+    margin: 0 auto;
+    padding: 0px;
+    width: 50%;
+    overflow: hidden;
+}
+.navbarc li{
+    display: inline-block;
+    padding: 2px;
+    width: 150px;
+    marign: 0 auto;
+}
 
 .btn-custom {
 	background-color: #fff;

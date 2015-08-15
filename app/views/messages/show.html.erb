@@ -7,7 +7,7 @@
 		<!-- image not showing up under message form -->
 		
 		<h6 class="reply-to-msg">Image:</h6>
-		<span class="img-thumbnail" ><%= image_tag @message.paperclip_image_id.image.url(:image) if @message.paperclip_image_id  %></span>
+		<span class="img-thumbnail" ><%= image_tag @message.paperclip_image.image.url(:image) if @message.paperclip_image  %></span>
 
 		<!-- image not showing up under message form  -->
 

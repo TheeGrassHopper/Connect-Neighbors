@@ -9,7 +9,9 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
   validates :email, uniqueness: true, presence: true, on: :create  
-  validates :password, length: { minimum: 10 }  
+  validates :password,  presence: true  
   validates_associated :comments
-  validates_associated :messages    
+  validates_associated :messages   
+  has_attached_file :image, :styles => { :medium => "300x300>", :thumb => "100x100>" }
+  
 end

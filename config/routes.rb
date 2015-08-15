@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get "pages/*page" => "pages#show"
+  
   resources :profiles
   resources :paperclip_images
   devise_for :users

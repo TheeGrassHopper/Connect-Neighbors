@@ -1,14 +1,19 @@
 <footer class="footer">
 	<div class ="container">
-	  <small>
-	   All right reserved to the community this Web application servers !
-	  </small>
-	  <nav>
-	    <ul>
-	      <li><%= link_to "About I Appartment",   '#' %></li>
-	      <li><%= link_to "Contact me", '#' %></li>
-	      <li><%= link_to "Social Media ",'#' %></li>
+	  <nav class="navbarc">
+	    <ul class="navbarc">
+	      <li> <%= link_to "About","pages/about" %></li>
+	      <li>
+	      <%= link_to 'Funny',"pages/funny" %>
+	      </li>
+	      <li>
+	      <%= link_to  'Contact',"pages/contact"  %>
+	      </li>
 	    </ul>
 	  </nav>
+	  <h5>
+	   All right reserved to the communities that are using this Web application serves  !
+	  </h5>
+	  <p>© <%= Date.today.year %> My App.</p>
 	</div>  
 </footer>

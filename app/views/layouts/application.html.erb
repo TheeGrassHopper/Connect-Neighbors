@@ -1,13 +1,14 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>I Apartments</title>
+  <title>I dd APARTMENTS</title>
+  
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
 <body>
-
+	
 	<div class="navbar navbar-default">
 	<%= render 'layouts/form' %>
 		<div class="container">
@@ -22,7 +23,7 @@
 				
 						<% if user_signed_in? %>
 					<li><%= link_to "Sign Out", destroy_user_session_path, method: :delete, class: "btn btn-primary" %></li> 
-					<li><%= link_to "Profile", new_profile_path, class: "btn btn-warning" %></li>
+					<li><%= link_to "Profile", profiles_path, class: "btn btn-warning" %></li>
 					<%else%>
 						<li ><%= link_to "Log In", new_user_session_path, class: "btn btn-info" %></li>
 					<% end %>

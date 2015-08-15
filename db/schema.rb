@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150722032834) do
+ActiveRecord::Schema.define(version: 20150723074912) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -30,17 +30,10 @@ ActiveRecord::Schema.define(version: 20150722032834) do
   create_table "messages", force: :cascade do |t|
     t.string   "title"
     t.text     "description"
-    t.datetime "created_at",         null: false
-    t.datetime "updated_at",         null: false
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
     t.integer  "user_id"
-    t.string   "image_file_name"
-    t.string   "image_content_type"
-    t.integer  "image_file_size"
-    t.datetime "image_updated_at"
-    t.integer  "paperclip_image_id"
   end
-
-  add_index "messages", ["paperclip_image_id"], name: "index_messages_on_paperclip_image_id", using: :btree
 
   create_table "paperclip_images", force: :cascade do |t|
     t.datetime "created_at",         null: false
@@ -49,22 +42,24 @@ ActiveRecord::Schema.define(version: 20150722032834) do
     t.string   "image_content_type"
     t.integer  "image_file_size"
     t.datetime "image_updated_at"
+    t.integer  "profile_id"
+    t.integer  "message_id"
     t.integer  "user_id"
   end
 
+  add_index "paperclip_images", ["message_id"], name: "index_paperclip_images_on_message_id", using: :btree
+  add_index "paperclip_images", ["profile_id"], name: "index_paperclip_images_on_profile_id", using: :btree
   add_index "paperclip_images", ["user_id"], name: "index_paperclip_images_on_user_id", using: :btree
 
   create_table "profiles", force: :cascade do |t|
     t.integer  "user_id"
-    t.integer  "paperclip_image_id"
     t.string   "firstname"
     t.string   "lastname"
     t.integer  "apt"
-    t.datetime "created_at",         null: false
-    t.datetime "updated_at",         null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
-  add_index "profiles", ["paperclip_image_id"], name: "index_profiles_on_paperclip_image_id", using: :btree
   add_index "profiles", ["user_id"], name: "index_profiles_on_user_id", using: :btree
 
   create_table "users", force: :cascade do |t|
@@ -87,8 +82,8 @@ ActiveRecord::Schema.define(version: 20150722032834) do
 
   add_foreign_key "comments", "messages"
   add_foreign_key "comments", "users"
-  add_foreign_key "messages", "paperclip_images"
+  add_foreign_key "paperclip_images", "messages"
+  add_foreign_key "paperclip_images", "profiles"
   add_foreign_key "paperclip_images", "users"
-  add_foreign_key "profiles", "paperclip_images"
   add_foreign_key "profiles", "users"
 end
