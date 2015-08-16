@@ -17,7 +17,6 @@ ruby ENV['CUSTOM_RUBY_VERSION'] || '2.1.2'
 gem 'rails_12factor'
 gem 'puma'
 
-
 group :development, :test do
   gem 'byebug'
 
