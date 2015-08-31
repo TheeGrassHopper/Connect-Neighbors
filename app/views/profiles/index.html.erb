@@ -19,7 +19,7 @@
         <tr>
           <td><%= profile.user.email %></td>
   <!-- only one image showing up any other added images not showing up -->
-          <td><%= image_tag profile.image.url(:medium),class: "img-thumbnail" if profile.image %></td>
+          <td><%= image_tag profile.avatar.url(:medium),class: "img-thumbnail" if profile.avatar %></td>
 
           <td><%= profile.firstname %></td>
           <td><%= profile.lastname %></td>

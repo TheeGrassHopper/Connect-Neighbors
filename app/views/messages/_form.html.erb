@@ -1,10 +1,10 @@
 <%= simple_form_for @message do |f| %>
 	
 <div class="message-show">
-  <%= f.label :paperclip_image %>
+  <%= f.label :image%>
 
   <div class="btn btn-default">
- 	 <%= f.file_field :paperclip_image, html: { class: 'form-control' }%>
+ 	 <%= f.file_field :image, html: { class: 'form-control' }%>
   </div>
   <%= f.input :title, label: "Message Title" %>
 

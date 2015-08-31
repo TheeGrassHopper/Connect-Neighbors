@@ -5,6 +5,7 @@ class ProfilesController < ApplicationController
   # GET /profiles.json
   def index
     @profiles = Profile.all
+    
   end
 
   # GET /profiles/1
@@ -69,6 +70,6 @@ class ProfilesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def profile_params
-      params.require(:profile).permit(:user_id, :paperclip_image_id, :firstname, :lastname, :apt).merge(:user_id => current_user.id)
+      params.require(:profile).permit(:user_id, :paperclip_image_id, :firstname, :lastname, :apt, :avatar).merge(:user_id => current_user.id)
     end
 end
