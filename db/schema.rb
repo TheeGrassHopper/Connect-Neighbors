@@ -39,22 +39,6 @@ ActiveRecord::Schema.define(version: 20150831213652) do
     t.datetime "image_updated_at"
   end
 
-  create_table "paperclip_images", force: :cascade do |t|
-    t.datetime "created_at",         null: false
-    t.datetime "updated_at",         null: false
-    t.string   "image_file_name"
-    t.string   "image_content_type"
-    t.integer  "image_file_size"
-    t.datetime "image_updated_at"
-    t.integer  "profile_id"
-    t.integer  "message_id"
-    t.integer  "user_id"
-  end
-
-  add_index "paperclip_images", ["message_id"], name: "index_paperclip_images_on_message_id", using: :btree
-  add_index "paperclip_images", ["profile_id"], name: "index_paperclip_images_on_profile_id", using: :btree
-  add_index "paperclip_images", ["user_id"], name: "index_paperclip_images_on_user_id", using: :btree
-
   create_table "profiles", force: :cascade do |t|
     t.integer  "user_id"
     t.string   "firstname"
@@ -94,8 +78,5 @@ ActiveRecord::Schema.define(version: 20150831213652) do
 
   add_foreign_key "comments", "messages"
   add_foreign_key "comments", "users"
-  add_foreign_key "paperclip_images", "messages"
-  add_foreign_key "paperclip_images", "profiles"
-  add_foreign_key "paperclip_images", "users"
   add_foreign_key "profiles", "users"
 end
