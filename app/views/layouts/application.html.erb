@@ -28,7 +28,7 @@
 						<li ><%= link_to "Log In", new_user_session_path, class: "btn btn-info" %></li>
 					<% end %>
 					<% if user_signed_in? %>
-					<li><%= link_to 'Upload A Pic', paperclip_images_path, class: "btn btn-danger" %></li>
+					<li><%#= link_to 'Upload A Pic', paperclip_images_path, class: "btn btn-danger" %></li>
 					<% end %>
 				
 				<% if user_signed_in? %>

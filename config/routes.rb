@@ -1,8 +1,11 @@
 Rails.application.routes.draw do
-  get "pages/*page" => "pages#show"
+  # get "pages/*page" => "pages#show"
+  get "/about" => "pages#about"
+  get "/contact" => "pages#contact"
+  get "/funny" => "pages#funny"
+  resources :pages
   
   resources :profiles
-  resources :paperclip_images
   devise_for :users
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
